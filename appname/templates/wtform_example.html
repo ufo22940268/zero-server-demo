@@ -6,13 +6,24 @@
     <form role="form" action="{{ url_for('.wtform') }}" method="post">
         {{ form.csrf_token }}
         <div class="form-group">
-            <label for="user_name">User Name *</label>
+            <label for="user_name">姓名 *</label>
             {{ form.user_name(class_="form-control") }}
         </div>
         <div class="form-group">
-            <label for="message">Message</label>
-            {{ form.message(class_="form-control") }}
+            <label for="mobile">手机号</label>
+            {{ form.mobile(class_="form-control") }}
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <div class="form-group">
+            <label for="degree">职位</label>
+            {{ form.degree(class_="form-control") }}
+        </div>
+
+        <div class="form-group">
+            <label for="type">类型</label>
+            {{ form.type(class_="form-control") }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">提交</button>
     </form>
 {% endblock %}

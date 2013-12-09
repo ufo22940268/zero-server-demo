@@ -27,3 +27,7 @@ lint:
 
 test:
 	py.test tests
+
+touch:
+	touch ./manager.py
+

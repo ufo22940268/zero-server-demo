@@ -15,7 +15,6 @@ cache = Cache()
 # init flask assets
 assets_env = Environment()
 
-
 def create_app(object_name, env="prod"):
     """
     An flask application factory, as explained here:
