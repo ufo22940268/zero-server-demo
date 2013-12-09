@@ -3,59 +3,71 @@
 {% block title %}Starter Template{% endblock %}
 
 {% block body %}
-<table class="table">
+<table class="table active">
   <thead>
-    <td>
-      分行
-    </td>
-    
-    <td>
-      职级
-    </td>
-    
-    <td>
-      类别
-    </td>
-    
-    <td>
-      姓名
-    </td>
-    
-    <td>
-      手机号
-    </td>
-    
-    <td>
-      <!-- 用来表示转岗离职这些状态 -->
-      状态
-    </td>
+    <tr>
+      <th>
+        分行
+      </th>
+
+      <th>
+        职级
+      </th>
+
+      <th>
+        类别
+      </th>
+
+      <th>
+        姓名
+      </th>
+
+      <th>
+        手机号
+      </th>
+
+      <th>
+        <!-- 用来表示转岗离职这些状态 -->
+        状态
+      </th>
+    </tr>
   </thead>
-  {% for o in operators %}
   <tbody>
-    <td>
-      {{ o['type'] }}
-    </td>
-    
-    <td>
-      {{ o['degree'] }}
-    </td>
-    
-    <td>
-     asdf
-    </td>
-    
-    <td>
-      {{ o['username'] }}
-    </td>
-    
-    <td>
-      {{ o['mobile'] }}
-    </td>
-    
-    <td>
-      asdf
-    </td>
+    {% for o in operators %}
+    <tr>
+      <td>
+        {{ o['type'] }}
+      </td>
+
+      <td>
+        {{ o['degree'] }}
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        {{ o['username'] }}
+      </td>
+
+      <td>
+        {{ o['mobile'] }}
+      </td>
+
+      <td>
+        <div class="btn-group" id="operator-state">
+          <button data-id="{{ o['uid'] }}" type="button" class="{% if o['state'] == 0 %}active{% endif %} btn btn-default operator-state-btn" value="0">正常</button>
+          <button data-id="{{ o['uid'] }}" type="button" class="{% if o['state'] == 1 %}active{% endif %} btn btn-default operator-state-btn" value="1">转岗</button>
+          <button data-id="{{ o['uid'] }}" type="button" class="{% if o['state'] == 2 %}active{% endif %} btn btn-default operator-state-btn" value="2">离职</button>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
   </tbody>
-  {% endfor %}
 </table>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/public/js/operator_list.js"></script>
 {% endblock %}
