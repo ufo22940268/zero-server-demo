@@ -3,6 +3,59 @@
 {% block title %}Starter Template{% endblock %}
 
 {% block body %}
-    <h1 class="tera text-center">Starter Template</h1>
-    <p class="lead text-center">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<table class="table">
+  <thead>
+    <td>
+      分行
+    </td>
+    
+    <td>
+      职级
+    </td>
+    
+    <td>
+      类别
+    </td>
+    
+    <td>
+      姓名
+    </td>
+    
+    <td>
+      手机号
+    </td>
+    
+    <td>
+      <!-- 用来表示转岗离职这些状态 -->
+      状态
+    </td>
+  </thead>
+  {% for o in operators %}
+  <tbody>
+    <td>
+      {{ o['type'] }}
+    </td>
+    
+    <td>
+      {{ o['degree'] }}
+    </td>
+    
+    <td>
+     asdf
+    </td>
+    
+    <td>
+      {{ o['username'] }}
+    </td>
+    
+    <td>
+      {{ o['mobile'] }}
+    </td>
+    
+    <td>
+      asdf
+    </td>
+  </tbody>
+  {% endfor %}
+</table>
 {% endblock %}

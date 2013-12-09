@@ -3,27 +3,34 @@
 {% block title %}WTForms Example{% endblock %}
 
 {% block body %}
-    <form role="form" action="{{ url_for('.wtform') }}" method="post">
-        {{ form.csrf_token }}
-        <div class="form-group">
-            <label for="user_name">姓名 *</label>
-            {{ form.user_name(class_="form-control") }}
-        </div>
-        <div class="form-group">
-            <label for="mobile">手机号</label>
-            {{ form.mobile(class_="form-control") }}
-        </div>
-        
-        <div class="form-group">
-            <label for="degree">职位</label>
-            {{ form.degree(class_="form-control") }}
-        </div>
+<div class="row">
+  <form class="col-md-3" role="form" action="{{ url_for('.wtform') }}" method="post">
+    {{ form.csrf_token }}
+    <div class="form-group">
+      <label for="username">姓名 *</label>
+      {{ form.username(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      <label for="mobile">手机号</label>
+      {{ form.mobile(class_="form-control") }}
+    </div>
 
-        <div class="form-group">
-            <label for="type">类型</label>
-            {{ form.type(class_="form-control") }}
-        </div>
-        
-        <button type="submit" class="btn btn-primary">提交</button>
-    </form>
+    <div class="form-group">
+      <label for="degree">职位</label>
+      {{ form.degree(class_="form-control") }}
+    </div>
+
+    <div class="form-group">
+      <label for="type">类型</label>
+      {{ form.type(class_="form-control") }}
+    </div>
+
+    <div class="form-group">
+      <label for="type">密码</label>
+      {{ form.password(class_="form-control") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">提交</button>
+  </form>
+</div>
 {% endblock %}

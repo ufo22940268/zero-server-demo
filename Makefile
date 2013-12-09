@@ -29,5 +29,5 @@ test:
 	py.test tests
 
 touch:
-	touch ./manager.py
+	touch appname/forms.py
 

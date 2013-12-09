@@ -15,7 +15,12 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///../database.db'
     SQLALCHEMY_ECHO = True
 
-    CACHE_TYPE = 'simple'
+    CACHE_TYPE = 'null'
 
     # This allows us to test the forms from WTForm
     WTF_CSRF_ENABLED = False
+
+    # configuration
+    MONGO_HOST = 'localhost'
+    MONGO_PORT = 27017
+

@@ -5,6 +5,7 @@ from flask import Flask
 from flask_assets import Environment
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 from flask.ext.cache import Cache
+from flask.ext.pymongo import PyMongo
 
 from appname import assets
 from appname.models import db
@@ -14,6 +15,7 @@ cache = Cache()
 
 # init flask assets
 assets_env = Environment()
+mongo = PyMongo()
 
 def create_app(object_name, env="prod"):
     """
@@ -37,6 +39,10 @@ def create_app(object_name, env="prod"):
 
     #init SQLAlchemy
     db.init_app(app)
+    
+    # connect to the database
+    mongo.init_app(app)
+
 
     # Import and register the different asset bundles
     assets_env.init_app(app)
