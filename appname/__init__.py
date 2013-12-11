@@ -1,11 +1,17 @@
 #! ../env/bin/python
+#coding:utf-8
 import os
 
 from flask import Flask
 from flask_assets import Environment
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 from flask.ext.cache import Cache
+from flask.ext.admin.form import Select2Widget
+from flask.ext.admin.contrib.pymongo import ModelView, filters
 from flask.ext.pymongo import PyMongo
+from flask.ext.babelex import Babel
+from wtforms import form, fields
+from appname.model.operator_model import *
 
 from appname import assets
 from appname.models import db
@@ -33,7 +39,7 @@ def create_app(object_name, env="prod"):
 
     app.config.from_object(object_name)
     app.config['ENV'] = env
-
+    
     #init the cache
     cache.init_app(app)
 
@@ -42,7 +48,16 @@ def create_app(object_name, env="prod"):
     
     # connect to the database
     mongo.init_app(app)
-
+    
+    # init admin views
+    import flask.ext.admin
+    admin = flask.ext.admin.Admin(app, u'用户管理系统')
+    babel = Babel(app)
+    @babel.localeselector
+    def get_locale():
+        return 'zh'
+    with app.app_context():
+        admin.add_view(OperatorView(mongo.db.operator, u'专员管理'))
 
     # Import and register the different asset bundles
     assets_env.init_app(app)

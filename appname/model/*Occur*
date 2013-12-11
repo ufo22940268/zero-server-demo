@@ -1,0 +1,22 @@
+15 matches total for "SuperUserView":
+1 match in buffer: zero-server-demo/TAGS
+     47:class SuperUserView(ModelView):SuperUserView21,594
+2 matches in buffer: *vc-diff*
+     25:+class SuperUserView(ModelView):
+     40:+        admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+10 matches in buffer: *shell*
+     72:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+     82:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+    131:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+    151:    class SuperUserView(ModelView):
+    152:  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 27, in SuperUserView
+    304:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+    336:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+    414:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+    415:NameError: global name 'SuperUserView' is not defined
+    424:    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+1 match in buffer: appname/__init__.py
+     61:        admin.add_view(OperatorView(mongo.db.super_user, u'创建操作员'))
+1 match in buffer: operator_model.py
+     21:class OperatorView(ModelView):
+
